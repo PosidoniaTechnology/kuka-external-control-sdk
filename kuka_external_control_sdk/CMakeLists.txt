@@ -1,7 +1,8 @@
 cmake_minimum_required(VERSION 3.13)
 
-project(external-control-sdk)
+project(kuka_external_control_sdk)
 
+find_package(ament_cmake REQUIRED)
 
 set(common_directory ${CMAKE_SOURCE_DIR}/common)
 set(utils_directory ${CMAKE_SOURCE_DIR}/utils)
@@ -17,3 +18,5 @@ install(DIRECTORY ${common_directory}/include/ ${utils_directory}/include/
 # See REP 136 for details
 # Installing this in non-ROS environments won't have any effect, but it won't harm, either.
 install(FILES package.xml DESTINATION share/external_control_sdk)
+
+ament_package()

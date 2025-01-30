@@ -1,11 +1,12 @@
 cmake_minimum_required(VERSION 3.13)
 
-project("kuka-external-control-examples")
+project(kuka_external_control_sdk_examples)
 
 # Project dependencies
 list(APPEND CMAKE_PREFIX_PATH "~/.local/lib/cmake")
 
 find_package(kuka-external-control-sdk CONFIG REQUIRED)
+find_package(ament_cmake REQUIRED)
 
 # Monitoring example
 set(monitoring-sources
@@ -46,3 +47,5 @@ target_include_directories(${control-artifact_name}
 # See REP 136 for details
 # Installing this in non-ROS environments won't have any effect, but it won't harm, either.
 install(FILES package.xml DESTINATION share/external_control_sdk)
+
+ament_package()
